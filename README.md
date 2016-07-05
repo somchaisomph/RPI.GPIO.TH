@@ -1,2 +1,2 @@
 # RPI.GPIO.TH
-To collect general GPIO components used with Raspberry Pi.
+To collect general GPIO components used with Raspberry Pi created by Thai.
