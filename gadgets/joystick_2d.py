@@ -1,8 +1,12 @@
 from spi.rpi_spi import rpi_spi_dev
+from spi.adc.MCP3208 import MCP3208
 
 class JoyStick2D():
-	def __init__(self,spi=None):
-		self.spi = 	spi
+	def __init__(self,devic=0):
+		self.spi = rpi_spi_dev(device)
+		self.mcp = None
+		if self.spi is not None:
+			self.mcp = MCP3208(spi)	
 		self.swt_channel = 0
 		self.vrx_channel = 1
 		self.vry_channel = 2	
@@ -14,8 +18,6 @@ class JoyStick2D():
 		self.x_min = (1,10)
 		self.y_min = (1,10)	
 		self.y_max = (1013,1023)		
-
-		self.mcp = MCP3208()	
 
 	def mapjs2scr(self,jsx,jsy):
 		jsy = JOYSTICK_DIM[1] - jsy
