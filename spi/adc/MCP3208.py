@@ -2,16 +2,10 @@ import spidev
 
 
 class MCP3208 :
-	def __init__(self):
+	def __init__(self,spi=None):
 		try:
 			# To open spi bus
-			self.spi = spidev.SpiDev()
-			# Raspi has only one spi bus (#0) and able to connect 2 devices (#0,#1) by default.
-			#self.spi.open(0,0) # connect to bus=0,device=0
-			self.spi.open(0,0) # connect to bus=0,device=0
-			#self.spi.mode = 0
-			#self.bits_per_word = 8
-			#self.max_speed_hz = 50000
+			self.spi = spi
 		except :
 			self.spi = None
 
