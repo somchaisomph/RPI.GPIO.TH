@@ -21,7 +21,7 @@ class LED():
       GPIO.output(self.gpio_number,False)## Switch off pin 7
       time.sleep(speed)## Wait
       
-  def clean_up(self):
+  def cleanup(self):
     GPIO.cleanup(self.gpio_number)
 
       
