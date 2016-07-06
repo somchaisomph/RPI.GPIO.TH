@@ -2,15 +2,6 @@ import spidev
 import time
 import sys
 
-try:
-	# To open spi bus
-	spi = spidev.SpiDev()
-
-	# Raspi has only one spi bus (#0) and able to connect 2 devices (#0,#1) .
-	spi.open(0,0) # connect to device with bus=0,device=0
-except :
-	spi = None
-
 class MCP3208 :
 	def __init__(self,spi=None):
 		self.spi = spi
@@ -44,23 +35,5 @@ class MCP3208 :
 		return self.process_data(data)
 
 
-if __name__ == "__main__":
-	mcp = MCP3208(spi)		
-	swt_channel = 0
-	vrx_channel = 1
-	vry_channel = 2	
-	delay = 0.5
-	while True:
-		vrx_pos = mcp.read_adc(vrx_channel)
-  		vry_pos = mcp.read_adc(vry_channel)
- 
-  		# Read switch state
-  		swt_val = mcp.read_adc(swt_channel)
- 
-		# Print out results
-		print "--------------------------------------------"
-		print("X : {}  Y : {}  Switch : {}".format(vrx_pos,vry_pos,swt_val))
- 
-		# Wait before repeating loop
-		time.sleep(delay)
+
 		
