@@ -12,9 +12,11 @@ class RPI_SPI ():
 			self.spi_0 = None
 			self.spi_1 = None
 			
-	def get_spi_0(self):
-		return self.spi_0
-		
-	def get_spi_1(self):
-		return self.spi_1
-		
+	def get_device(self,device=0):
+		if device==0:
+			return self.spi_0
+		elif device==1:
+			return self.spi_1
+		else :
+			return None
+
