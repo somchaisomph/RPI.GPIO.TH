@@ -1,22 +1,17 @@
 import spidev
 
 
-class RPI_SPI ():
-	def __init__(self):
+class rpi_spi_dev ():
+	def __init__(self,device=0):
 		try:
-			self.spi_0 = spidev.SpiDev()
-			self.spi_1 = spidev.SpiDev()
-			self.spi_0.open(0,0)
-			self.spi_1.open(0,1)
+			# To open spi bus
+			self.spi = spidev.SpiDev()
+			# Raspi has only one spi bus (#0) and able to connect 2 devices (#0,#1).
+			self.spi.open(0,device)
 		except:
-			self.spi_0 = None
-			self.spi_1 = None
+			self.spi = None
 			
-	def get_device(self,device=0):
-		if device==0:
-			return self.spi_0
-		elif device==1:
-			return self.spi_1
-		else :
-			return None
+			
+	def get_device(self):
+		return self.spi
 
