@@ -1,3 +1,4 @@
+from spi.rpi_spi import 
 class JoyStick2D():
 	def __init__(self,spi=None):
 		self.spi = 	spi
