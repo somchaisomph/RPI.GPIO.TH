@@ -3,7 +3,7 @@ from spi.adc.MCP3208 import MCP3208
 
 class JoyStick2D():
 	def __init__(self,device=0,swt_channel=0,x_channel=1,y_channel=2):
-		self.spi = rpi_spi_dev(device)
+		self.spi = rpi_spi_dev(device).spi
 		self.mcp = None
 		if self.spi is not None:
 			self.mcp = MCP3208(self.spi)	
