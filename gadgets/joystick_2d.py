@@ -2,14 +2,15 @@ from spi.rpi_spi import rpi_spi_dev
 from spi.adc.MCP3208 import MCP3208
 
 class JoyStick2D():
-	def __init__(self,devic=0):
+	def __init__(self,devic=0,swt_channel=0,x_channel=1,y_channel=2):
 		self.spi = rpi_spi_dev(device)
 		self.mcp = None
 		if self.spi is not None:
 			self.mcp = MCP3208(spi)	
-		self.swt_channel = 0
-		self.vrx_channel = 1
-		self.vry_channel = 2	
+		self.swt_channel = swt_channel
+		self.vrx_channel = x_channel
+		self.vry_channel = y_channel	
+		'''
 		self.mid_point = (512,500)
 		self.mid_x = 513
 		self.mid_y = 498
@@ -18,17 +19,19 @@ class JoyStick2D():
 		self.x_min = (1,10)
 		self.y_min = (1,10)	
 		self.y_max = (1013,1023)		
+		'''
 
-	def mapjs2scr(self,jsx,jsy):
+	def mapjs2scr(self,jsx,jsy,SCREEN_DIM=(1800,780)):
 		jsy = JOYSTICK_DIM[1] - jsy
 		scr_x = (jsx * SCREEN_DIM[0]) // JOYSTICK_DIM[0]
 		scr_y = (jsy * SCREEN_DIM[1]) // JOYSTICK_DIM[1]
 		return (scr_x,scr_y)
 	
 	def get_pos(self):
+		if self.mcp is None:
+			return (0,0)
 		xpos = self.mcp.read_adc(self.vrx_channel)
         	ypos = self.mcp.read_adc(self.vry_channel)
- 		#pos_scr = self.mapjs2scr(xpos,ypos)
 		return (xpos,ypos)
 
 	def get_direction(self):
@@ -68,11 +71,3 @@ class JoyStick2D():
 		
 		return dir
 		
-	def get_angle(self,xpos,ypos):
-		dx = xpos - self.mid_x  
-		dy = ypos - self.mid_y
-		if (abs(dx) < self.stdev) and (abs(dy) < self.stdev) :
-			#return -90
-			return None
-		angle = math.atan2(dy,dx)
-		return int(math.degrees(angle))
