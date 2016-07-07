@@ -15,3 +15,22 @@ time.sleep(2)
 l.blink(3,1) # blink led 3 times with 1 second interval.
 l.cleanup()
 </pre>
+<hr />
+<h3>2D SPI JoyStick</h3>
+<pre>
+import signal
+import time
+from gadgets.joysticks import JoyStick2D
+
+def signal_handler(signal,frame):
+	global stop_flag
+	stop_flat = True
+
+joystick = JoyStick2D() #default 
+
+stop_flag = False
+while not stop_flag :
+	direction = joystick.get_direction()
+	left,right,up,down,stop = direction
+	print left,right,up,down,stop
+</pre>
