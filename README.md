@@ -15,6 +15,16 @@ time.sleep(2)
 l.blink(3,1) # blink led 3 times with 1 second interval.
 l.cleanup()
 </pre>
+<h3>PWM LED</h3>
+<pre>
+from gadgets.led import PWM_LED
+import time
+
+l2 = LED(7) #connect anode to 7th pin on Raspberry Pi
+l2.brighten(start=0,end=100,step=1,dur=0.05)
+l2.dim(start=100,end=0,step=-1,dur=0.05)
+l2.cleanup()
+</pre>
 <hr />
 <h3>2D SPI JoyStick</h3>
 <pre>
