@@ -20,8 +20,33 @@ class LED():
 			time.sleep(speed)## Wait
 			TH_GPIO().send(self.gpio_number,0)
 			time.sleep(speed)## Wait
-      
+
+				
+
 	def cleanup(self):
 		TH_GPIO().disable_pin(self.gpio_number)
+		
+class PWM_LED():
+	def __init__(self,gpio_number=7,freq=100):
+		self.gpio_number = gpio_number
+		self.freq = freq
+		self.pwm = TH_GPIO().pwm_create(self.gpio_number,freq=self.freq)
+    
+	def set_freq(self,freq):
+		self.freq = freq
+		self.pwm.set_freq(freq)
+	
+	def dim(self,start=100,end=0,step=-1,dur=0.1):
+		if self.pwm is not None:			
+			for dc in range(start,end, step):
+				self.pwm.change(dc)
+				time.sleep(dur)
 
-      
+	def brighten(self,start=0,end=100,step=1,dur=0.1):
+		if self.pwm is not None:			
+			for dc in range(start,end, step):
+				self.pwm.change(dc)
+				time.sleep(dur)				
+
+	def cleanup(self):
+		TH_GPIO().disable_pin(self.gpio_number)		
