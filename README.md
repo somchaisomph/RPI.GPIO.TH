@@ -27,7 +27,7 @@ l2.brighten(start=0,end=100,step=1,dur=0.05)
 l2.dim(start=100,end=0,step=-1,dur=0.05)
 l2.cleanup()
 </pre>
-<h3>PWM LED</h3>
+<h3>ARRAY LED (Blinker)</h3>
 <pre>
 from gadgets.led import ARRAY_LED
 import time
