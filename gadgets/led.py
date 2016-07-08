@@ -55,3 +55,35 @@ class PWM_LED():
 
 	def cleanup(self):
 		TH_GPIO().disable_pin(self.gpio_number)		
+
+class ARRAY_LED():
+	def __init__(self,gpio_numbers=[]):
+		self.leds = {}
+		for p in gpio_numbers:
+			TH_GPIO().enable_pin(p,mode='out')
+			self.leds[p] = 0
+    
+	def on(self,leds=[]):
+		for p in leds:
+			TH_GPIO().send(p,1)
+			self.leds[p] = 1
+		
+    
+	def off(self,leds=[]):
+		for p in leds:
+			TH_GPIO().send(p,0)
+			self.leds[p] = 0
+    
+	def blink(self,leds=[],numTimes=3,dur=1):
+		for i in range(0,numTimes):## Run loop numTimes
+			self.on(leds) 
+			time.sleep(dur)## Wait
+			self.off(leds)
+			time.sleep(dur)## Wait
+
+
+	def cleanup(self):
+		for p in self.leds:
+			TH_GPIO().disable_pin(p)
+		self.leds.clear()
+		
