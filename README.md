@@ -25,6 +25,28 @@ l2.brighten(start=0,end=100,step=1,dur=0.05)
 l2.dim(start=100,end=0,step=-1,dur=0.05)
 l2.cleanup()
 </pre>
+<h3>PWM LED</h3>
+<pre>
+from gadgets.led import ARRAY_LED
+import time
+
+def lighting(l):
+	for j in range(2):
+		for i in ps:
+			l.blink([i],1,0.1)
+		for k in ps_rev:
+			l.blink([k],1,0.1)	
+	for j in range(3):		
+		l.blink(ps,3,0.1)
+		time.sleep(0.5)
+
+ps = [29,31,33,35,37]
+ps_rev = ps[::-1] # reverse list
+l = ARRAY_LED(ps)
+for i in range(10):
+	lighting(l)
+l.cleanup()
+</pre>
 <hr />
 <h3>2D SPI JoyStick</h3>
 <pre>
