@@ -2,8 +2,7 @@
 To collect general GPIO components used with Raspberry Pi created by Thai community.
 This project is subject to change anytime, please come to see frequently.
 <h2>Installation</h2>
-<h3>dependencies</h3>
-<h4>Python SpiDev</h4>
+<h3>Python SpiDev</h3>
 <pre>
 $ git clone https://github.com/doceme/py-spidev.git
 $ cd py-spidev
