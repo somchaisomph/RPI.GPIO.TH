@@ -1,5 +1,6 @@
 # RPI.GPIO.TH
 To collect general GPIO components used with Raspberry Pi created by Thai community.
+This project is subject to change anytime, please come to see frequently.
 <h2>Installation</h2>
 Just copy gadgets and spi folders and place somewhere on your Raspberry Pi.
 <h2>Examples</h2>
