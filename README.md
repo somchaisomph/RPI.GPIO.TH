@@ -8,7 +8,7 @@ $ git clone https://github.com/doceme/py-spidev.git
 $ cd py-spidev
 $ sudo python setup.py install
 </pre>
-Just copy gadgets and spi folders and place somewhere on your Raspberry Pi.
+And copy gadgets and spi folders and place somewhere on your Raspberry Pi.
 <h2>Examples</h2>
 <h3>LED</h3>
 <pre>
