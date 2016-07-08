@@ -2,6 +2,13 @@
 To collect general GPIO components used with Raspberry Pi created by Thai community.
 This project is subject to change anytime, please come to see frequently.
 <h2>Installation</h2>
+<h3>dependencies</h3>
+<h4>Python SpiDev</h4>
+<pre>
+$ git clone https://github.com/doceme/py-spidev.git
+$ cd py-spidev
+$ sudo python setup.py install
+</pre>
 Just copy gadgets and spi folders and place somewhere on your Raspberry Pi.
 <h2>Examples</h2>
 <h3>LED</h3>
