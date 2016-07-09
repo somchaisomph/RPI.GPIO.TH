@@ -1,4 +1,4 @@
-from gadgets.led import PWM_LED
+from gadgets.lights.led import PWM_LED
 import time
 
 
