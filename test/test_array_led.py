@@ -1,4 +1,4 @@
-from gadgets.led import ARRAY_LED
+from gadgets.lights.led import ARRAY_LED
 import time
 
 def lighting(l):
