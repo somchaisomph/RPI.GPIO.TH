@@ -12,7 +12,7 @@ Download gadgets and spi folders and place somewhere on your Raspberry Pi.
 <h2>Examples</h2>
 <h3>LED</h3>
 <pre>
-from gadgets.led import LED
+from gadgets.lights.led import LED
 import time
 
 l = LED(7) #connect anode to 7th pin on Raspberry Pi
@@ -25,7 +25,7 @@ l.cleanup()
 </pre>
 <h3>PWM LED</h3>
 <pre>
-from gadgets.led import PWM_LED
+from gadgets.lights.led import PWM_LED
 import time
 
 l2 = LED(7) #connect anode to 7th pin on Raspberry Pi
@@ -35,7 +35,7 @@ l2.cleanup()
 </pre>
 <h3>ARRAY LED (Blinker)</h3>
 <pre>
-from gadgets.led import ARRAY_LED
+from gadgets.lights.led import ARRAY_LED
 import time
 
 def lighting(l):
