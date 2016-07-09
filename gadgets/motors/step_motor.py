@@ -28,15 +28,11 @@ class Model_28BYJ_48():
 				[0,0,0,1]]
 		
 		self.step_formular = {-1:(8,4076,5.625),
-						-2:(4,2038,11.25),
-						1:(8,4096,5.625),
-						2:(4,2038,11.25)}
+					-2:(4,2038,11.25),
+					1:(8,4096,5.625),
+					2:(4,2038,11.25)}
 		
 		self.step_count = len(self.seq)
-		#self.step_dir = 1 # Set to 1 or 2 for clockwise  # Set to -1 or -2 for anti-clockwise	
-		self.wait_time = 3/float(1000) # do not use 1 ! it will not step
-		# Initialise variables
-		#self.step_counter = 0
 		self.dir_err = "Invalid direction value, \nit must be one of -2,-1,0,1,2. \n0 : swing back and forth (angular_step)\n 1 : step clockwise with 8 step-sequences \n 2 : step clockwise with 4 step-sequences \n-1 : step couter clockwise with 8 step-sequences \n-2 : step couter clockwise with 4 step-sequences."
 		self.wt_err="waiting time must be an integer between 2 and 20.(Lower is faster)"
 		 
