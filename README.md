@@ -121,6 +121,9 @@ for i in range(5):
 from gadgets.motors.step_motor import Model_28BYJ_48
 import threading
 
+st_mot = Model_28BYJ_48([11,15,16,18])
+st_mot2 = Model_28BYJ_48([31,33,35,37])
+
 def do1():
 	for i in range(5):
 		st_mot.angular_step(180,direction=2,waiting_time=2,bi_direction=True) 	
