@@ -74,3 +74,62 @@ while not stop_flag :
 	left,right,up,down,stop = direction
 	print left,right,up,down,stop
 </pre>
+<hr />
+<h3>Step Motor</h3>
+<h4>Normal Step</h4>
+<pre>
+from gadgets.motors.step_motor import Model_28BYJ_48
+from gadgets.joysticks import JoyStick2D
+
+st_mot = Model_28BYJ_48([11,15,16,18])
+#change directions and step-sequences
+print("Clockwise with 4 step-sequences.")
+st_mot.step(1,direction=2,waiting_time=2) 
+time.sleep(2)
+
+print("Clockwise with 8 step-sequences.")
+st_mot.step(1,direction=1,waiting_time=2) 
+time.sleep(2)
+
+print("Counter Clockwise with 4 step-sequences.")
+st_mot.step(1,direction=-1,waiting_time=2) 
+time.sleep(2)
+
+print("Counter Clockwise with 8 step-sequences.")
+st_mot.step(1,direction=-2,waiting_time=2) 
+time.sleep(2)
+
+#change speed by changing waiting time
+
+for sp in range(2,5):
+	print("Waiting = ",str(sp))
+	st_mot.step(1,direction=2,waiting_time=sp) 
+	time.sleep(2)
+
+</pre>
+
+<h4>Sweeper</h4>
+<p>1 step motor</p>
+<pre>
+from gadgets.motors.step_motor import Model_28BYJ_48
+st_mot = Model_28BYJ_48([11,15,16,18])
+for i in range(5):
+	st_mot.angular_step(180,direction=2,waiting_time=2,bi_direction=True) 	
+</pre>
+<p>2 step motor</p>
+<pre>
+from gadgets.motors.step_motor import Model_28BYJ_48
+import threading
+
+def do1():
+	for i in range(5):
+		st_mot.angular_step(180,direction=2,waiting_time=2,bi_direction=True) 	
+
+def do2():
+	st_mot2.step(4,direction=2,waiting_time=2) 
+
+t1 = threading.Thread(target=do1)
+t2 = threading.Thread(target=do2)
+t1.start()
+t2.start()	
+</pre>
