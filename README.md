@@ -139,6 +139,7 @@ t2.start()
 <hr/>
 <h3>Weather</h3>
 <h4>Temperatur sensor DS18B20</h4>
+<pre>
 from gadgets.weather.DS18B20 import DS18B20 
 import time
 
@@ -159,3 +160,4 @@ finally:
 	sensor.stop()
 	sensor.join()
 	
+</pre>
