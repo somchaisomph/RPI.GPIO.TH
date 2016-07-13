@@ -160,21 +160,21 @@ t2.start()
 from gadgets.weather.DS18B20 import DS18B20 
 import time
 
-_id = '28-0000066a6165' # change it to be your own id
+_id = '28-0000066a6165' # replace it with your own id
 
-sensor = DS18B20(_id,2) # create DS18B20 instance. It would read temperature every 2 seconds.
+sensor = DS18B20(_id,2) # create DS18B20 instance with 2 seconds time interval.
 
 try:
-	sensor.start()
+	sensor.start() #activate sensor
 	while True :
 		print(sensor.C) # show temperature in Celsius. Use sensor.F for Fahrenheit.
-		time.sleep(2)
+		time.sleep(2) # take a break
 	
 except KeyboardInterrupt:
 	print("Stoping")
 	
 finally:	
 	sensor.stop() # Tell sensor to stop reading.
-	sensor.join() # Wait util sensor finish its job.
+	sensor.join() # Wait util sensor complete its job.
 	
 </pre>
