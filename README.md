@@ -116,7 +116,7 @@ st_mot = Model_28BYJ_48([11,15,16,18])
 for i in range(5):
 	st_mot.angular_step(180,direction=2,waiting_time=2,bi_direction=True) 	
 </pre>
-<p>2 step motor</p>
+<p>2 step motors</p>
 <pre>
 from gadgets.motors.step_motor import Model_28BYJ_48
 import threading
@@ -136,3 +136,26 @@ t2 = threading.Thread(target=do2)
 t1.start()
 t2.start()	
 </pre>
+<hr/>
+<h3>Weather</h3>
+<h4>Temperatur sensor DS18B20</h4>
+from gadgets.weather.DS18B20 import DS18B20 
+import time
+
+_id = '28-0000066a6165' # change it to be your own id
+
+sensor = DS18B20(_id,2)
+
+try:
+	sensor.start()
+	while True :
+		print(sensor.C)
+		time.sleep(2)
+	
+except KeyboardInterrupt:
+	print("Stoping")
+	
+finally:	
+	sensor.stop()
+	sensor.join()
+	
