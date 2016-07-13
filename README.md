@@ -8,7 +8,24 @@ $ git clone https://github.com/doceme/py-spidev.git
 $ cd py-spidev
 $ sudo python setup.py install
 </pre>
-Download gadgets and spi folders and place somewhere on your Raspberry Pi.
+<h3>One-Wire</h3>
+<ol>
+<li>
+Add these lines at the bottom of /etc/modules 
+<pre>
+w1-gpio
+w1-therm
+</pre>
+</li>
+<li>
+Add this line at the bottom of /boot/config.txt
+<pre>
+dtoverlay=w1-gpio-pullup,gpiopin=XX
+</pre>
+Where XX is GPIO to be connected to sensor.
+</li>
+</ol>
+<hr />
 <h2>Examples</h2>
 <h3>LED</h3>
 <pre>
