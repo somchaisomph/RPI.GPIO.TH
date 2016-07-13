@@ -145,19 +145,19 @@ import time
 
 _id = '28-0000066a6165' # change it to be your own id
 
-sensor = DS18B20(_id,2)
+sensor = DS18B20(_id,2) # create DS18B20 instance. It would read temperature every 2 seconds.
 
 try:
 	sensor.start()
 	while True :
-		print(sensor.C)
+		print(sensor.C) # show temperature in Celsius. Use sensor.F for Fahrenheit.
 		time.sleep(2)
 	
 except KeyboardInterrupt:
 	print("Stoping")
 	
 finally:	
-	sensor.stop()
-	sensor.join()
+	sensor.stop() # Tell sensor to stop reading.
+	sensor.join() # Wait util sensor finish its job.
 	
 </pre>
