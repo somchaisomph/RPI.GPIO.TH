@@ -31,7 +31,7 @@ Where XX is GPIO to be connected to sensor.
 Enable Raspbian I2C interface as mensioned in <a href='https://www.raspberrypi.org/documentation/configuration/raspi-config.md'>https://www.raspberrypi.org/documentation/configuration/raspi-config.md</a> 
 </li>
 
-<li>
+<li> Install python interface :
 <pre>
 $ sudo apt-get install i2ctools
 $ sudo apt-get install python-smbus python3-smbus
