@@ -25,6 +25,20 @@ dtoverlay=w1-gpio-pullup,gpiopin=XX
 Where XX is GPIO to be connected to sensor.
 </li>
 </ol>
+<h3>I2C </h3>
+<ol>
+<li>
+Enable Raspbian I2C interface as mensioned in <a href='https://www.raspberrypi.org/documentation/configuration/raspi-config.md'>https://www.raspberrypi.org/documentation/configuration/raspi-config.md</a> 
+</li>
+
+<li>
+<pre>
+$ sudo apt-get install i2ctools
+$ sudo apt-get install python-smbus python3-smbus
+</pre>
+
+</li>
+</ol>
 <hr />
 <h2>Examples</h2>
 <h3>LED</h3>
