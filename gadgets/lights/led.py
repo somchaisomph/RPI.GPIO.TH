@@ -2,20 +2,20 @@ from gadgets.th_gpio import TH_GPIO
 import time 
 
 class LED():
-	def __init__(self,gpio_number=7):
-		self.gpio_number = gpio_number
+	def __init__(self,pin_number=7):
+		self.pin_number = gpio_number
 		#A singleton class is treated like a function
-		TH_GPIO().enable_pin(gpio_number,mode='out')
+		TH_GPIO().enable_pin(self.pin_number,mode='out')
 		self.status = 0 #0:off,1:on
     
 	def on(self):
 		self.status = 1
-		TH_GPIO().send(self.gpio_number,self.status)
+		TH_GPIO().send(self.pin_number,self.status)
 		
     
 	def off(self):
 		self.status = 0
-		TH_GPIO().send(self.gpio_number,self.status)
+		TH_GPIO().send(self.pin_number,self.status)
     
 	def blink(self,numTimes=3,speed=1):
 		for i in range(0,numTimes):## Run loop numTimes
@@ -26,15 +26,15 @@ class LED():
 
 
 	def cleanup(self):
-		TH_GPIO().disable_pin(self.gpio_number)
+		TH_GPIO().disable_pin(self.gpin_number)
 		self.status = 0
 		
 
 class PWM_LED():
-	def __init__(self,gpio_number=7,freq=100):
-		self.gpio_number = gpio_number
+	def __init__(self,pin_number=7,freq=100):
+		self.pin_number = pin_number
 		self.freq = freq
-		self.pwm = TH_GPIO().pwm_create(self.gpio_number,freq=self.freq)
+		self.pwm = TH_GPIO().pwm_create(self.pin_number,freq=self.freq)
     
 	def set_freq(self,freq):
 		self.freq = freq
@@ -53,7 +53,7 @@ class PWM_LED():
 				time.sleep(dur)				
 
 	def cleanup(self):
-		TH_GPIO().disable_pin(self.gpio_number)		
+		TH_GPIO().disable_pin(self.pin_number)		
 		
 class ARRAY_LED():
 	def __init__(self,gpio_numbers=[]):
