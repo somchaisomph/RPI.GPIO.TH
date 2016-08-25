@@ -3,7 +3,7 @@ import time
 
 class LED():
 	def __init__(self,pin_number=7):
-		self.pin_number = gpio_number
+		self.pin_number = pin_number
 		#A singleton class is treated like a function
 		TH_GPIO().enable_pin(self.pin_number,mode='out')
 		self.status = 0 #0:off,1:on
@@ -26,7 +26,7 @@ class LED():
 
 
 	def cleanup(self):
-		TH_GPIO().disable_pin(self.gpin_number)
+		TH_GPIO().disable_pin(self.pin_number)
 		self.status = 0
 		
 
