@@ -1,4 +1,4 @@
-from gadgets..lights.led import LED
+from gadgets.lights.led import LED
 import time
 
 l = LED(7) #connect led to pin number 7
