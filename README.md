@@ -236,7 +236,8 @@ from gadgets.environment.motion import PIR
 
 if __name__ == "__main__":
 	try :
-		pir = PIR(interval=10) # detect with 10 millisecond interval
+		pir = PIR(pin_number=11,interval=10) 
+		# PIR connected to Pin 11 of Raspi with 10 millisecond interval of detection
 		pir.start()
 		print('Ctrl-c to exit.')
 		while 1 :
