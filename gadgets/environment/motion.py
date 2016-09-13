@@ -1,3 +1,6 @@
+import threading
+import time
+
 class PIR(threading.Thread):
 	def __init__(self,pin_number=11,interval=10):
 		threading.Thread.__init__(self)
