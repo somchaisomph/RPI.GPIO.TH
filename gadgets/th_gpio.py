@@ -30,7 +30,7 @@ class TH_GPIO():
 			if mode == 'out' :
 				GPIO.setup(pin_number, GPIO.OUT)
 			elif mode == 'in' :
-				GPIO.setup(self.gpio_number, GPIO.IN) 
+				GPIO.setup(gpio_number, GPIO.IN) 
 			self._gpios[pin_number]=None
 
 
