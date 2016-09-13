@@ -36,6 +36,7 @@ class PIR(threading.Thread):
 	
 	def stop(self):
 		self.exit_flag = 1
+		self.join()
 		
 	def cleanup(self):
 		TH_GPIO().disable_pin(self.pin_number)
