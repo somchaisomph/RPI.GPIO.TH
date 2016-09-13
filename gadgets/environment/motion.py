@@ -1,5 +1,6 @@
 import threading
 import time
+from gadgets.th_gpio import TH_GPIO
 
 class PIR(threading.Thread):
 	def __init__(self,pin_number=11,interval=10):
