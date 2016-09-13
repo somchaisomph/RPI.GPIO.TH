@@ -228,4 +228,20 @@ while not stop_flag :
 	print x,y,z
 	
 </pre>
+<hr/>
+<h3>Environment</h3>
+<h4>PIR</h4>
+<pre>
+from gadgets.environment.motion import PIR
 
+if __name__ == "__main__":
+	try :
+		pir = PIR(interval=10) # detect with 10 millisecond interval
+		pir.start()
+		print('Ctrl-c to exit.')
+		while 1 :
+			print(pir.result()) # 1 : motion detected, 0: no motion detected
+	except KeyboardInterrupt :	
+		pir.stop()
+		pir.cleanup()
+</pre>
